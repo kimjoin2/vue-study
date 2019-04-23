@@ -1,0 +1,35 @@
+<!-- occur event to communicate other component by event bus -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <child-component></child-component>
+</div>
+<script>
+    let eventBus = new Vue();
+    Vue.component('child-component', {
+        template: '<div>under level area<button v-on:click="showLog">show</button></div>',
+        methods: {
+            showLog: function(){
+                eventBus.$emit('triggerEventBus', 100);
+            }
+        }
+    });
+    let app = new Vue({
+        el: "#app",
+        created: function(){
+            eventBus.$on('triggerEventBus', function(value) {
+                console.log("event occurred! : ", value)
+            });
+        },
+    });
+</script>
+</body>
+</html>
+
+

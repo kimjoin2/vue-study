@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <button v-on:click="getData">get framework list</button>
+</div>
+<script>
+    new Vue({
+        el: '#app',
+        methods: {
+            getData: function(){
+                axios.get('https://raw.githubusercontent.com/joshua1988/doit-vuejs/master/data/demo.json')
+                    .then(function(response) {
+                        console.log(response);
+                        console.log(response.data);
+                    });
+            }
+        }
+    });
+</script>
+</body>
+</html>
+
+

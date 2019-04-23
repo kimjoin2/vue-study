@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router@3.0.1/dist/vue-router.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <h1>vue router example</h1>
+    <p>
+        <router-link to="/main">goto main component</router-link>
+        <router-link to="/login">goto login component</router-link>
+    </p>
+    <router-view></router-view>
+</div>
+<script>
+    let main = {template: '<div>main</div>'};
+    let login = {template: '<div>login</div>'};
+
+    let routes = [
+        {path: '/main', component: main},
+        {path: '/login', component: login}
+    ];
+
+    let router = new VueRouter({
+        mode: 'history', // to not view hash code in browser
+        routes
+    });
+    let app = new Vue({
+        router
+    }).$mount('#app');
+</script>
+</body>
+</html>

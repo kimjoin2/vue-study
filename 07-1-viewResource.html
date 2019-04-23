@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.4"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <button v-on:click="getData">get framework list</button>
+</div>
+<script>
+    new Vue({
+        el: '#app',
+        methods: {
+            getData: function(){
+                this.$http.get('https://raw.githubusercontent.com/joshua1988/doit-vuejs/master/data/demo.json')
+                    .then(function(response) {
+                        console.log(response);
+                        console.log(JSON.parse(response.data));
+                    });
+            }
+        }
+    });
+</script>
+</body>
+</html>
+

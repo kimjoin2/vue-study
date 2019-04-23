@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <child-component v-bind:getmessage="getMessageData"></child-component>
+</div>
+<script>
+    Vue.component('child-component', {
+        props: ['getmessage'],
+        template: '<h1> {{ getmessage }} </h1>'
+    });
+
+    new Vue({
+        el: "#app",
+        data:{
+            getMessageData: "this is message"
+        },
+    });
+</script>
+</body>
+</html>

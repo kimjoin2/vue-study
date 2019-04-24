@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <a v-if="flag">do it vue.js</a>
+    <ul>
+        <li v-for="system in systems">{{ system }}</li>
+    </ul>
+    <p v-show="flag">do it vue.js</p>
+    <h5 v-bind:id="uid">newbie</h5>
+    <button v-on:click="popupAlert">alert!</button>
+</div>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            flag: true,
+            systems: ['android', 'ios', 'windows'],
+            uid: 10,
+        },
+        methods:{
+            popupAlert: function() {
+                return alert('this is alert!');
+            }
+        }
+    });
+</script>
+</body>
+</html>
+
+
+
